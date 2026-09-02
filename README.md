@@ -1,56 +1,117 @@
-# Welcome to your Expo app 👋
+# 📱 Mobile App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+> React Native mobile application built with **Expo** and **Expo Router**.
 
-## Get started
+---
 
-1. Install dependencies
+## 📋 Requirements
 
-   ```bash
-   npm install
-   ```
+Install the following before running the project:
 
-2. Start the app
+- **Node.js LTS**
+- **npm**
+- **Git**
+- **Android Studio** and an Android emulator, or **Expo Go** on an Android phone
+- **Xcode** if you want to run the iOS simulator locally on macOS
 
-   ```bash
-   npx expo start
-   ```
+---
 
-In the output, you'll find options to open the app in a
+## 📦 Install Dependencies
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+Open **Command Prompt** or **PowerShell** in the project folder:
 
 ```bash
-npm run reset-project
+cd C:\Projects\mobile-app
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Run `npm install` whenever dependencies change or after cloning the repository.
 
-### Other setup steps
+---
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+## 🚀 Start the Development Server
 
-## Learn more
+```bash
+npx expo start
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+After Expo starts, choose one option:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+| Key / Action | Description                           |
+| ------------ | ------------------------------------- |
+| `w`          | Open the web version                  |
+| `a`          | Open the Android emulator             |
+| `i`          | Open the iOS simulator on macOS       |
+| QR Code      | Open with Expo Go on a physical phone |
 
-## Join the community
+> Keep the terminal running while using the application.
 
-Join our community of developers creating universal apps.
+---
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## 🧹 Clear the Cache
+
+If the app displays old files or navigation changes do not appear, stop Expo with `Ctrl+C` and run:
+
+```bash
+npx expo start --clear
+```
+
+If a phone cannot connect over local Wi-Fi, use tunnel mode:
+
+```bash
+npx expo start --tunnel
+```
+
+---
+
+## ✅ Quality Checks
+
+### TypeScript Check
+
+```bash
+npm run typecheck
+```
+
+### Linting
+
+```bash
+npm run lint
+```
+
+---
+
+## 🛑 Stop the Project
+
+Click the terminal running Expo and press:
+
+```text
+Ctrl+C
+```
+
+---
+
+## 📂 Main Project Locations
+
+```text
+src/app/              Application routes
+src/app/(tabs)/       Home and tab screens
+src/app/_layout.tsx   Root navigation layout
+src/components/       Reusable components
+assets/               Images and other static files
+package.json          Dependencies and scripts
+app.json              Expo application configuration
+```
+
+---
+
+## ⚡ Common Commands
+
+| Command                  | Purpose                    |
+| ------------------------ | -------------------------- |
+| `npx expo start`         | Start Expo                 |
+| `npx expo start --clear` | Start with a clean cache   |
+| `npm run android`        | Open Android directly      |
+| `npm run ios`            | Open iOS directly on macOS |
+| `npm run web`            | Open web directly          |
+
+---

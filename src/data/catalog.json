@@ -1,0 +1,165 @@
+{
+  "categories": [
+    { "id": "all", "label": "All" },
+    { "id": "women", "label": "Women" },
+    { "id": "men", "label": "Men" },
+    { "id": "kids", "label": "Kids" },
+    { "id": "shoes", "label": "Shoes" },
+    { "id": "accessories", "label": "Accessories" },
+    { "id": "sale", "label": "Sale" }
+  ],
+  "promos": [
+    {
+      "id": "summer-sale",
+      "eyebrow": "LIMITED DROP",
+      "title": "Summer Sale",
+      "description": "Fresh looks with up to 50% off.",
+      "cta": "Shop sale",
+      "image": "promo-summer-sale"
+    },
+    {
+      "id": "new-arrivals",
+      "eyebrow": "JUST IN",
+      "title": "New arrivals",
+      "description": "Everyday pieces, elevated.",
+      "cta": "Explore now",
+      "image": "promo-new-arrivals"
+    },
+    {
+      "id": "accessories-edit",
+      "eyebrow": "THE EDIT",
+      "title": "Finish the look",
+      "description": "Accessories that make the outfit.",
+      "cta": "View edit",
+      "image": "promo-accessories"
+    }
+  ],
+  "products": [
+    {
+      "id": "p1",
+      "name": "Classic Orange Jacket",
+      "category": "men",
+      "sizes": ["S", "M", "L", "XL"],
+      "colors": ["Orange", "Black"],
+      "price": 129.99,
+      "salePrice": 79.99,
+      "rating": 4.8,
+      "reviews": 128,
+      "stock": 18,
+      "image": "promo-new-arrivals",
+      "description": "A lightweight statement jacket with a clean silhouette and easy everyday layering."
+    },
+    {
+      "id": "p2",
+      "name": "White Eyelet Dress",
+      "category": "women",
+      "sizes": ["XS", "S", "M", "L"],
+      "colors": ["White"],
+      "price": 89.99,
+      "salePrice": 59.99,
+      "rating": 4.7,
+      "reviews": 96,
+      "stock": 11,
+      "image": "promo-summer-sale",
+      "description": "A breezy eyelet dress designed for warm days, weekend plans, and effortless styling."
+    },
+    {
+      "id": "p3",
+      "name": "Linen Shirt",
+      "category": "women",
+      "sizes": ["XS", "S", "M", "L"],
+      "colors": ["Cream", "Orange"],
+      "price": 69.99,
+      "salePrice": 49.99,
+      "rating": 4.6,
+      "reviews": 74,
+      "stock": 24,
+      "image": "promo-summer-sale",
+      "description": "Soft linen with a relaxed fit that looks polished from morning to evening."
+    },
+    {
+      "id": "p4",
+      "name": "Basic Crew Neck Tee",
+      "category": "men",
+      "sizes": ["S", "M", "L", "XL"],
+      "colors": ["Navy", "Black", "White"],
+      "price": 29.99,
+      "salePrice": 19.99,
+      "rating": 4.5,
+      "reviews": 51,
+      "stock": 42,
+      "image": "promo-new-arrivals",
+      "description": "A dependable everyday tee made for layering, travel, and repeat wear."
+    },
+    {
+      "id": "p5",
+      "name": "Floral Maxi Dress",
+      "category": "women",
+      "sizes": ["XS", "S", "M", "L"],
+      "colors": ["Floral"],
+      "price": 89.99,
+      "salePrice": 64.99,
+      "rating": 4.9,
+      "reviews": 39,
+      "stock": 9,
+      "image": "promo-summer-sale",
+      "description": "A flowing floral maxi with a soft waistline and an easy vacation-ready shape."
+    },
+    {
+      "id": "p6",
+      "name": "Chino Shorts",
+      "category": "men",
+      "sizes": ["S", "M", "L", "XL"],
+      "colors": ["Sand", "Olive"],
+      "price": 49.99,
+      "salePrice": 34.99,
+      "rating": 4.4,
+      "reviews": 28,
+      "stock": 31,
+      "image": "promo-accessories",
+      "description": "A versatile chino short with a clean cut and comfortable everyday finish."
+    },
+    {
+      "id": "p7",
+      "name": "Everyday White Sneakers",
+      "category": "shoes",
+      "sizes": ["36", "37", "38", "39", "40", "41", "42"],
+      "colors": ["White"],
+      "price": 79.99,
+      "salePrice": null,
+      "rating": 4.8,
+      "reviews": 114,
+      "stock": 16,
+      "image": "promo-accessories",
+      "description": "A clean everyday sneaker that works with denim, dresses, and weekend tailoring."
+    },
+    {
+      "id": "p8",
+      "name": "Sunset Mini Bag",
+      "category": "accessories",
+      "sizes": ["One size"],
+      "colors": ["Orange", "Black"],
+      "price": 59.99,
+      "salePrice": 39.99,
+      "rating": 4.7,
+      "reviews": 46,
+      "stock": 13,
+      "image": "promo-accessories",
+      "description": "A compact shoulder bag with a warm orange finish and room for the essentials."
+    },
+    {
+      "id": "p9",
+      "name": "Mini Everyday Hoodie",
+      "category": "kids",
+      "sizes": ["4Y", "6Y", "8Y", "10Y"],
+      "colors": ["Orange", "Cream"],
+      "price": 44.99,
+      "salePrice": 29.99,
+      "rating": 4.6,
+      "reviews": 21,
+      "stock": 20,
+      "image": "promo-new-arrivals",
+      "description": "A soft, easy hoodie for school days, play dates, and cooler evenings."
+    }
+  ]
+}

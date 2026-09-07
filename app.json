@@ -1,36 +1,37 @@
 {
   "expo": {
-    "name": "fashion-scene",
+    "name": "Fashion Scene",
     "slug": "fashion-scene",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "mobileapp",
-    "userInterfaceStyle": "automatic",
+    "icon": "./assets/images/fashion-scene-logo.png",
+    "scheme": "fashionscene",
+    "userInterfaceStyle": "light",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/images/fashion-scene-logo.png"
     },
     "android": {
+      "package": "com.fahionscene.fashionscene",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+        "backgroundColor": "#FFA200",
+        "foregroundImage": "./assets/images/fashion-scene-logo.png",
+        "monochromeImage": "./assets/images/fashion-scene-logo.png"
       },
       "predictiveBackGestureEnabled": false
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/fashion-scene-logo.png"
     },
     "plugins": [
       "expo-router",
+      "expo-updates",
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 76
+          "backgroundColor": "#FFFFFF",
+          "image": "./assets/images/fashion-scene-logo.png",
+          "imageWidth": 180
         }
       ]
     ],
@@ -38,17 +39,16 @@
       "typedRoutes": true,
       "reactCompiler": true
     },
-    "extra": {
-      "router": {},
-      "eas": {
-        "projectId": "05f387e5-2e2b-41af-920b-58e65fc75551"
-      }
+    "updates": {
+      "url": "https://u.expo.dev/05f387e5-2e2b-41af-920b-58e65fc75551"
     },
     "runtimeVersion": {
       "policy": "appVersion"
     },
-    "updates": {
-      "url": "https://u.expo.dev/05f387e5-2e2b-41af-920b-58e65fc75551"
+    "extra": {
+      "eas": {
+        "projectId": "05f387e5-2e2b-41af-920b-58e65fc75551"
+      }
     }
   }
 }

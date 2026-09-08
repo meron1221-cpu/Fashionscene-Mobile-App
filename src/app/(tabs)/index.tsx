@@ -1,5 +1,5 @@
 import { Link } from "expo-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   Dimensions,
   Image,
@@ -18,11 +18,10 @@ import {
 import catalog from "../../data/catalog.json";
 
 const width = Dimensions.get("window").width;
-
 export default function HomeScreen() {
   const [slide, setSlide] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState("all");
   const carouselRef = useRef<ScrollView>(null);
-
   useEffect(() => {
     const timer = setInterval(() => {
       const next = (slide + 1) % catalog.promos.length;
@@ -34,7 +33,12 @@ export default function HomeScreen() {
     }, 4500);
     return () => clearInterval(timer);
   }, [slide]);
-
+  const visibleProducts = useMemo(() => {
+    if (selectedCategory === "all") return catalog.products.slice(0, 6);
+    if (selectedCategory === "sale")
+      return catalog.products.filter((p) => p.salePrice !== null);
+    return catalog.products.filter((p) => p.category === selectedCategory);
+  }, [selectedCategory]);
   return (
     <ScrollView
       style={styles.page}
@@ -64,7 +68,17 @@ export default function HomeScreen() {
               <Text style={styles.heroEyebrow}>{promo.eyebrow}</Text>
               <Text style={styles.heroTitle}>{promo.title}</Text>
               <Text style={styles.heroDescription}>{promo.description}</Text>
-              <Link href={"/categories" as any} asChild>
+              <Link
+                href={
+                  {
+                    pathname: "/categories",
+                    params: {
+                      category: promo.id === "summer-sale" ? "sale" : "all",
+                    },
+                  } as any
+                }
+                asChild
+              >
                 <Pressable style={styles.heroButton}>
                   <Text style={styles.heroButtonText}>{promo.cta}</Text>
                 </Pressable>
@@ -81,10 +95,9 @@ export default function HomeScreen() {
           />
         ))}
       </View>
-
       <View style={styles.sectionHeader}>
         <Text style={styles.sectionTitle}>Shop by category</Text>
-        <Link href={"/categories" as any} asChild>
+        <Link href="/categories" asChild>
           <Pressable>
             <Text style={styles.viewAll}>View all</Text>
           </Pressable>
@@ -92,23 +105,21 @@ export default function HomeScreen() {
       </View>
       <CategoryChips
         categories={catalog.categories}
-        selected="all"
-        onSelect={() => {}}
+        selected={selectedCategory}
+        onSelect={setSelectedCategory}
       />
-
       <View style={styles.sectionHeader}>
-        <Text style={styles.sectionTitle}>Featured · OTA Test</Text>
-        <Link href={"/categories" as any} asChild>
-          <Pressable>
-            <Text style={styles.viewAll}>View all</Text>
-          </Pressable>
-        </Link>
+        <Text style={styles.sectionTitle}>
+          {selectedCategory === "all"
+            ? "Featured · OTA Test"
+            : `${catalog.categories.find((c) => c.id === selectedCategory)?.label} picks`}
+        </Text>
+        <Text style={styles.resultCount}>{visibleProducts.length} items</Text>
       </View>
-      <ProductGrid products={catalog.products.slice(0, 6) as any} />
+      <ProductGrid products={visibleProducts as any} />
     </ScrollView>
   );
 }
-
 const styles = StyleSheet.create({
   page: { flex: 1, backgroundColor: "#fff" },
   content: { paddingHorizontal: 16, paddingBottom: 28 },
@@ -169,4 +180,5 @@ const styles = StyleSheet.create({
   },
   sectionTitle: { color: "#171717", fontSize: 19, fontWeight: "900" },
   viewAll: { color: "#e88f00", fontWeight: "800", fontSize: 13 },
+  resultCount: { color: "#8a8a8a", fontSize: 13, fontWeight: "700" },
 });

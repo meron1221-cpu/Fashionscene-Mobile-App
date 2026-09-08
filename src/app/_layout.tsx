@@ -1,11 +1,17 @@
-import '../../global.css';
-import { Stack } from 'expo-router';
+import { Stack } from "expo-router";
+import "../../global.css";
+import { ShopProvider } from "../state/shop-store";
 
 export default function RootLayout() {
   return (
-    <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="(tabs)" />
-      <Stack.Screen name="product/[id]" options={{ presentation: 'card', headerShown: true, title: 'Product details' }} />
-    </Stack>
+    <ShopProvider>
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="product/[id]"
+          options={{ title: "Product details" }}
+        />
+      </Stack>
+    </ShopProvider>
   );
 }

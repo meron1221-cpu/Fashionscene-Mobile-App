@@ -1,3 +1,4 @@
+import { Link } from "expo-router";
 import {
   Image,
   Pressable,
@@ -6,7 +7,6 @@ import {
   Text,
   View,
 } from "react-native";
-import { Link } from "expo-router";
 import { useShop } from "../state/shop-store";
 
 export const promoImages = {
@@ -23,9 +23,15 @@ export const promoImages = {
   "accessories-sunglasses.jpg": require("../../assets/images/accessories-sunglasses.jpg"),
   "white-sneakers.jpg": require("../../assets/images/white-sneakers.jpg"),
   "golden-sandals.jpg": require("../../assets/images/golden-sandals.jpg"),
+  "previous-orange-jacket.jpg": require("../../assets/images/previous-orange-jacket.jpg"),
+  "previous-eyelet-dress.jpg": require("../../assets/images/previous-eyelet-dress.jpg"),
+  "previous-linen-shirt.jpg": require("../../assets/images/previous-linen-shirt.jpg"),
+  "previous-crew-neck-tee.jpg": require("../../assets/images/previous-crew-neck-tee.jpg"),
+  "previous-layered-look.jpg": require("../../assets/images/previous-layered-look.jpg"),
+  "previous-accessories-edit.jpg": require("../../assets/images/previous-accessories-edit.jpg"),
 } as const;
 
-export const logoImage = require("../../assets/images/fashion-scene-monogram.png");
+export const logoImage = require("../../assets/images/fashion-scene-transparent-monogram.png");
 export type Product = {
   id: string;
   name: string;
@@ -160,13 +166,13 @@ export const styles = StyleSheet.create({
   chip: {
     borderRadius: 24,
     borderWidth: 1,
-    borderColor: "#e7e7e7",
+    borderColor: "#E8DED4",
     paddingHorizontal: 16,
     paddingVertical: 9,
-    backgroundColor: "#fff",
+    backgroundColor: "#FFFDFC",
   },
-  chipActive: { backgroundColor: "#ffa200", borderColor: "#ffa200" },
-  chipText: { color: "#6b6b6b", fontSize: 13, fontWeight: "600" },
+  chipActive: { backgroundColor: "#D95F18", borderColor: "#D95F18" },
+  chipText: { color: "#6B625B", fontSize: 13, fontWeight: "600" },
   chipTextActive: { color: "#fff" },
   grid: {
     flexDirection: "row",
@@ -180,7 +186,7 @@ export const styles = StyleSheet.create({
     height: 184,
     borderRadius: 18,
     overflow: "hidden",
-    backgroundColor: "#f4f4f4",
+    backgroundColor: "#F1E9E1",
     position: "relative",
   },
   productImage: { width: "100%", height: "100%" },
@@ -196,12 +202,12 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
   },
   favoriteText: { fontSize: 20, color: "#292929", lineHeight: 23 },
-  favoriteActive: { color: "#e88f00" },
+  favoriteActive: { color: "#C94F13" },
   salePill: {
     position: "absolute",
     left: 9,
     bottom: 9,
-    backgroundColor: "#ffa200",
+    backgroundColor: "#D95F18",
     color: "#fff",
     paddingHorizontal: 8,
     paddingVertical: 4,
@@ -211,7 +217,7 @@ export const styles = StyleSheet.create({
   },
   productName: {
     marginTop: 9,
-    color: "#171717",
+    color: "#27221E",
     fontSize: 14,
     fontWeight: "700",
   },
@@ -221,9 +227,9 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 4,
   },
-  salePrice: { color: "#e88f00", fontSize: 14, fontWeight: "800" },
+  salePrice: { color: "#C94F13", fontSize: 14, fontWeight: "800" },
   oldPrice: {
-    color: "#a0a0a0",
+    color: "#A0A0A0",
     textDecorationLine: "line-through",
     fontSize: 12,
   },

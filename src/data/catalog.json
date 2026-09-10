@@ -1,12 +1,33 @@
 {
   "categories": [
-    { "id": "all", "label": "All" },
-    { "id": "women", "label": "Women" },
-    { "id": "men", "label": "Men" },
-    { "id": "kids", "label": "Kids" },
-    { "id": "shoes", "label": "Shoes" },
-    { "id": "accessories", "label": "Accessories" },
-    { "id": "sale", "label": "Sale" }
+    {
+      "id": "all",
+      "label": "All"
+    },
+    {
+      "id": "women",
+      "label": "Women"
+    },
+    {
+      "id": "men",
+      "label": "Men"
+    },
+    {
+      "id": "kids",
+      "label": "Kids"
+    },
+    {
+      "id": "shoes",
+      "label": "Shoes"
+    },
+    {
+      "id": "accessories",
+      "label": "Accessories"
+    },
+    {
+      "id": "sale",
+      "label": "Sale"
+    }
   ],
   "promos": [
     {
@@ -39,22 +60,37 @@
       "id": "women-linen-set",
       "name": "Natural Linen Set",
       "category": "women",
-      "sizes": ["S", "M", "L", "XL"],
-      "colors": ["Natural", "Black"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Natural",
+        "Black"
+      ],
       "price": 89.99,
       "salePrice": 69.99,
       "rating": 4.8,
       "reviews": 42,
       "stock": 18,
-      "image": "reference-women-linen.jpg",
+      "image": "women-linen-set.jpg",
       "description": "A relaxed linen set designed for warm days and effortless styling."
     },
     {
       "id": "women-floral-dress",
       "name": "Floral Maxi Dress",
       "category": "women",
-      "sizes": ["S", "M", "L"],
-      "colors": ["Cream", "Orange"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "Cream",
+        "Orange"
+      ],
       "price": 64.99,
       "salePrice": 54.99,
       "rating": 4.7,
@@ -67,8 +103,15 @@
       "id": "men-orange-jacket",
       "name": "Classic Orange Jacket",
       "category": "men",
-      "sizes": ["M", "L", "XL"],
-      "colors": ["Orange", "Black"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Orange",
+        "Black"
+      ],
       "price": 119.99,
       "salePrice": 79.99,
       "rating": 4.9,
@@ -81,8 +124,16 @@
       "id": "kids-colorful-set",
       "name": "Sunny Kids Set",
       "category": "kids",
-      "sizes": ["2Y", "4Y", "6Y", "8Y"],
-      "colors": ["Yellow", "Blue"],
+      "sizes": [
+        "2Y",
+        "4Y",
+        "6Y",
+        "8Y"
+      ],
+      "colors": [
+        "Yellow",
+        "Blue"
+      ],
       "price": 49.99,
       "salePrice": 39.99,
       "rating": 4.6,
@@ -95,8 +146,13 @@
       "id": "accessories-tan-bag",
       "name": "Tan Everyday Bag",
       "category": "accessories",
-      "sizes": ["One size"],
-      "colors": ["Tan", "Black"],
+      "sizes": [
+        "One size"
+      ],
+      "colors": [
+        "Tan",
+        "Black"
+      ],
       "price": 79.99,
       "salePrice": null,
       "rating": 4.8,
@@ -109,8 +165,17 @@
       "id": "white-sneakers",
       "name": "Everyday White Sneakers",
       "category": "shoes",
-      "sizes": ["38", "39", "40", "41", "42", "43"],
-      "colors": ["White"],
+      "sizes": [
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43"
+      ],
+      "colors": [
+        "White"
+      ],
       "price": 69.99,
       "salePrice": 49.99,
       "rating": 4.5,
@@ -118,6 +183,215 @@
       "stock": 25,
       "image": "white-sneakers.jpg",
       "description": "Clean white sneakers designed for daily comfort and easy styling."
+    },
+    {
+      "id": "men-smart-casual",
+      "name": "Smart Casual Overshirt",
+      "category": "men",
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Black",
+        "Sand"
+      ],
+      "price": 99.99,
+      "salePrice": null,
+      "rating": 4.6,
+      "reviews": 24,
+      "stock": 13,
+      "image": "men-smart-casual.jpg",
+      "description": "A versatile overshirt for polished everyday outfits."
+    },
+    {
+      "id": "kids-weekend-look",
+      "name": "Weekend Play Look",
+      "category": "kids",
+      "sizes": [
+        "2Y",
+        "4Y",
+        "6Y",
+        "8Y"
+      ],
+      "colors": [
+        "Blue",
+        "Cream"
+      ],
+      "price": 44.99,
+      "salePrice": 34.99,
+      "rating": 4.7,
+      "reviews": 16,
+      "stock": 22,
+      "image": "kids-weekend-look.jpg",
+      "description": "Soft, playful separates made for active weekends."
+    },
+    {
+      "id": "accessories-sunglasses",
+      "name": "Modern Tortoise Sunglasses",
+      "category": "accessories",
+      "sizes": [
+        "One size"
+      ],
+      "colors": [
+        "Tortoise"
+      ],
+      "price": 39.99,
+      "salePrice": null,
+      "rating": 4.5,
+      "reviews": 18,
+      "stock": 17,
+      "image": "accessories-sunglasses.jpg",
+      "description": "A polished finishing touch with UV-protective lenses."
+    },
+    {
+      "id": "golden-sandals",
+      "name": "Golden Strap Sandals",
+      "category": "shoes",
+      "sizes": [
+        "38",
+        "39",
+        "40",
+        "41",
+        "42"
+      ],
+      "colors": [
+        "Gold"
+      ],
+      "price": 59.99,
+      "salePrice": 44.99,
+      "rating": 4.6,
+      "reviews": 21,
+      "stock": 16,
+      "image": "golden-sandals.jpg",
+      "description": "Easy slip-on sandals with a warm metallic finish."
+    },
+    {
+      "id": "previous-orange-jacket",
+      "name": "Classic Orange Jacket \u2014 Campaign Edit",
+      "category": "men",
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Orange",
+        "Black"
+      ],
+      "price": 129.99,
+      "salePrice": 79.99,
+      "rating": 4.9,
+      "reviews": 58,
+      "stock": 15,
+      "image": "previous-orange-jacket.jpg",
+      "description": "The original campaign look in a statement orange jacket."
+    },
+    {
+      "id": "previous-eyelet-dress",
+      "name": "White Eyelet Dress",
+      "category": "women",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "White",
+        "Orange"
+      ],
+      "price": 89.99,
+      "salePrice": 59.99,
+      "rating": 4.7,
+      "reviews": 31,
+      "stock": 12,
+      "image": "previous-eyelet-dress.jpg",
+      "description": "A breezy eyelet dress from the original campaign edit."
+    },
+    {
+      "id": "previous-linen-shirt",
+      "name": "Linen Shirt",
+      "category": "women",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Natural",
+        "Black"
+      ],
+      "price": 69.99,
+      "salePrice": 49.99,
+      "rating": 4.6,
+      "reviews": 22,
+      "stock": 18,
+      "image": "previous-linen-shirt.jpg",
+      "description": "An easy linen shirt with relaxed everyday styling."
+    },
+    {
+      "id": "previous-crew-neck-tee",
+      "name": "Basic Crew Neck Tee",
+      "category": "men",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Black",
+        "White"
+      ],
+      "price": 29.99,
+      "salePrice": 19.99,
+      "rating": 4.5,
+      "reviews": 26,
+      "stock": 30,
+      "image": "previous-crew-neck-tee.jpg",
+      "description": "A clean essential tee from the original campaign palette."
+    },
+    {
+      "id": "previous-layered-look",
+      "name": "Layered Weekend Look",
+      "category": "women",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "Orange",
+        "Cream"
+      ],
+      "price": 99.99,
+      "salePrice": 69.99,
+      "rating": 4.7,
+      "reviews": 20,
+      "stock": 14,
+      "image": "previous-layered-look.jpg",
+      "description": "A warm layered look styled for effortless weekends."
+    },
+    {
+      "id": "previous-accessories-edit",
+      "name": "Accessories Edit",
+      "category": "accessories",
+      "sizes": [
+        "One size"
+      ],
+      "colors": [
+        "Orange",
+        "Cream"
+      ],
+      "price": 79.99,
+      "salePrice": 49.99,
+      "rating": 4.8,
+      "reviews": 27,
+      "stock": 10,
+      "image": "previous-accessories-edit.jpg",
+      "description": "A curated accessories edit in the original campaign style."
     }
   ]
 }

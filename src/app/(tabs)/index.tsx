@@ -9,43 +9,104 @@ import {
   Text,
   View,
 } from "react-native";
+
 import {
   BrandHeader,
   CategoryChips,
   ProductGrid,
   promoImages,
 } from "../../components/shop-ui";
+
 import catalog from "../../data/catalog.json";
 
 const width = Dimensions.get("window").width;
+
+const homeFeaturedIds = [
+  "previous-orange-jacket",
+  "previous-eyelet-dress",
+  "women-linen-set",
+  "men-smart-casual",
+  "kids-weekend-look",
+  "previous-accessories-edit",
+  "white-sneakers",
+  "golden-sandals",
+];
+
+type CategoryId =
+  "all" | "women" | "men" | "kids" | "shoes" | "accessories" | "sale";
+
+function isCategoryId(value: string): value is CategoryId {
+  return (
+    value === "all" ||
+    value === "women" ||
+    value === "men" ||
+    value === "kids" ||
+    value === "shoes" ||
+    value === "accessories" ||
+    value === "sale"
+  );
+}
+
 export default function HomeScreen() {
   const [slide, setSlide] = useState(0);
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedCategory, setSelectedCategory] = useState<CategoryId>("all");
+
   const carouselRef = useRef<ScrollView>(null);
+
   useEffect(() => {
     const timer = setInterval(() => {
-      const next = (slide + 1) % catalog.promos.length;
-      setSlide(next);
-      carouselRef.current?.scrollTo({
-        x: next * Math.max(width - 32, 280),
-        animated: true,
+      setSlide((currentSlide) => {
+        const nextSlide = (currentSlide + 1) % catalog.promos.length;
+
+        carouselRef.current?.scrollTo({
+          x: nextSlide * Math.max(width - 32, 280),
+          animated: true,
+        });
+
+        return nextSlide;
       });
     }, 4500);
+
     return () => clearInterval(timer);
-  }, [slide]);
+  }, []);
+
   const visibleProducts = useMemo(() => {
-    if (selectedCategory === "all") return catalog.products.slice(0, 6);
-    if (selectedCategory === "sale")
-      return catalog.products.filter((p) => p.salePrice !== null);
-    return catalog.products.filter((p) => p.category === selectedCategory);
+    if (selectedCategory === "all") {
+      return homeFeaturedIds
+        .map((id) => catalog.products.find((product) => product.id === id))
+        .filter((product): product is (typeof catalog.products)[number] =>
+          Boolean(product),
+        );
+    }
+
+    if (selectedCategory === "sale") {
+      return catalog.products.filter((product) => product.salePrice !== null);
+    }
+
+    return catalog.products.filter(
+      (product) => product.category === selectedCategory,
+    );
   }, [selectedCategory]);
+
+  const selectedCategoryLabel =
+    selectedCategory === "all"
+      ? "Featured"
+      : selectedCategory === "sale"
+        ? "Sale picks"
+        : `${
+            catalog.categories.find(
+              (category) => category.id === selectedCategory,
+            )?.label ?? "Category"
+          } picks`;
+
   return (
     <ScrollView
       style={styles.page}
       contentContainerStyle={styles.content}
-      showsVerticalScrollIndicator
+      showsVerticalScrollIndicator={false}
     >
       <BrandHeader />
+
       <ScrollView
         ref={carouselRef}
         horizontal
@@ -56,18 +117,28 @@ export default function HomeScreen() {
         {catalog.promos.map((promo) => (
           <View
             key={promo.id}
-            style={[styles.hero, { width: Math.max(width - 32, 280) }]}
+            style={[
+              styles.hero,
+              {
+                width: Math.max(width - 32, 280),
+              },
+            ]}
           >
             <Image
               source={promoImages[promo.image as keyof typeof promoImages]}
               style={styles.heroImage}
               resizeMode="cover"
             />
+
             <View style={styles.heroShade} />
+
             <View style={styles.heroCopy}>
               <Text style={styles.heroEyebrow}>{promo.eyebrow}</Text>
+
               <Text style={styles.heroTitle}>{promo.title}</Text>
+
               <Text style={styles.heroDescription}>{promo.description}</Text>
+
               <Link
                 href={
                   {
@@ -87,6 +158,7 @@ export default function HomeScreen() {
           </View>
         ))}
       </ScrollView>
+
       <View style={styles.dots}>
         {catalog.promos.map((promo, index) => (
           <View
@@ -95,90 +167,155 @@ export default function HomeScreen() {
           />
         ))}
       </View>
+
       <View style={styles.sectionHeader}>
         <Text style={styles.sectionTitle}>Shop by category</Text>
+
         <Link href="/categories" asChild>
           <Pressable>
             <Text style={styles.viewAll}>View all</Text>
           </Pressable>
         </Link>
       </View>
+
       <CategoryChips
         categories={catalog.categories}
         selected={selectedCategory}
-        onSelect={setSelectedCategory}
+        onSelect={(categoryId) => {
+          if (isCategoryId(categoryId)) {
+            setSelectedCategory(categoryId);
+          }
+        }}
       />
+
       <View style={styles.sectionHeader}>
-        <Text style={styles.sectionTitle}>
-          {selectedCategory === "all"
-            ? "Featured · OTA Test"
-            : `${catalog.categories.find((c) => c.id === selectedCategory)?.label} picks`}
-        </Text>
+        <Text style={styles.sectionTitle}>{selectedCategoryLabel}</Text>
+
         <Text style={styles.resultCount}>{visibleProducts.length} items</Text>
       </View>
-      <ProductGrid products={visibleProducts as any} />
+
+      <ProductGrid products={visibleProducts} />
     </ScrollView>
   );
 }
+
 const styles = StyleSheet.create({
-  page: { flex: 1, backgroundColor: "#fff" },
-  content: { paddingHorizontal: 16, paddingBottom: 28 },
-  carousel: { gap: 12 },
+  page: {
+    flex: 1,
+    backgroundColor: "#FBF8F3",
+  },
+
+  content: {
+    paddingHorizontal: 16,
+    paddingBottom: 36,
+  },
+
+  carousel: {
+    gap: 12,
+  },
+
   hero: {
     height: 220,
     borderRadius: 24,
     overflow: "hidden",
-    backgroundColor: "#f5e4ce",
+    backgroundColor: "#E9D5C2",
   },
-  heroImage: { width: "100%", height: "100%" },
+
+  heroImage: {
+    width: "100%",
+    height: "100%",
+  },
+
   heroShade: {
     ...StyleSheet.absoluteFill,
-    backgroundColor: "rgba(0,0,0,0.13)",
+    backgroundColor: "rgba(40, 24, 16, 0.16)",
   },
-  heroCopy: { position: "absolute", left: 20, top: 24, width: "54%" },
+
+  heroCopy: {
+    position: "absolute",
+    left: 20,
+    top: 24,
+    width: "54%",
+  },
+
   heroEyebrow: {
-    color: "#fff",
+    color: "#FFFFFF",
     fontSize: 11,
     fontWeight: "900",
     letterSpacing: 1.5,
   },
+
   heroTitle: {
     marginTop: 9,
-    color: "#fff",
+    color: "#FFFFFF",
     fontSize: 31,
     lineHeight: 34,
     fontWeight: "900",
   },
+
   heroDescription: {
     marginTop: 7,
-    color: "#fff",
+    color: "#FFFFFF",
     fontSize: 14,
     lineHeight: 20,
   },
+
   heroButton: {
     marginTop: 15,
     alignSelf: "flex-start",
     borderRadius: 22,
     paddingHorizontal: 16,
     paddingVertical: 10,
-    backgroundColor: "#ffa200",
+    backgroundColor: "#D95F18",
   },
-  heroButtonText: { color: "#fff", fontSize: 13, fontWeight: "800" },
+
+  heroButtonText: {
+    color: "#FFFFFF",
+    fontSize: 13,
+    fontWeight: "800",
+  },
+
   dots: {
     flexDirection: "row",
     justifyContent: "center",
     gap: 5,
     marginTop: 9,
   },
-  dot: { width: 6, height: 6, borderRadius: 3, backgroundColor: "#d4d4d4" },
-  dotActive: { width: 18, backgroundColor: "#ffa200" },
+
+  dot: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: "#D8CFC6",
+  },
+
+  dotActive: {
+    width: 18,
+    backgroundColor: "#D95F18",
+  },
+
   sectionHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     marginTop: 24,
   },
-  sectionTitle: { color: "#171717", fontSize: 19, fontWeight: "900" },
-  viewAll: { color: "#e88f00", fontWeight: "800", fontSize: 13 },
-  resultCount: { color: "#8a8a8a", fontSize: 13, fontWeight: "700" },
+
+  sectionTitle: {
+    color: "#27221E",
+    fontSize: 19,
+    fontWeight: "900",
+  },
+
+  viewAll: {
+    color: "#C94F13",
+    fontWeight: "800",
+    fontSize: 13,
+  },
+
+  resultCount: {
+    color: "#8A8179",
+    fontSize: 13,
+    fontWeight: "700",
+  },
 });

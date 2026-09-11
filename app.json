@@ -2,26 +2,26 @@
   "expo": {
     "name": "Fashion Scene",
     "slug": "fashion-scene",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "orientation": "portrait",
-    "icon": "./assets/images/fashion-scene-transparent-monogram.png",
+    "icon": "./assets/images/fashion-scene-monogram-exact-safe.png",
     "scheme": "fashionscene",
     "userInterfaceStyle": "light",
     "ios": {
-      "icon": "./assets/images/fashion-scene-transparent-monogram.png"
+      "icon": "./assets/images/fashion-scene-monogram-exact-safe.png"
     },
     "android": {
       "package": "com.fahionscene.fashionscene",
       "adaptiveIcon": {
         "backgroundColor": "#F7F2EA",
-        "foregroundImage": "./assets/images/fashion-scene-transparent-monogram.png",
-        "monochromeImage": "./assets/images/fashion-scene-transparent-monogram.png"
+        "foregroundImage": "./assets/images/fashion-scene-monogram-exact-safe.png",
+        "monochromeImage": "./assets/images/fashion-scene-monogram-exact-safe.png"
       },
       "predictiveBackGestureEnabled": false
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/images/fashion-scene-transparent-monogram.png"
+      "favicon": "./assets/images/fashion-scene-monogram-exact-safe.png"
     },
     "plugins": [
       "expo-router",
@@ -30,7 +30,7 @@
         "expo-splash-screen",
         {
           "backgroundColor": "#F7F2EA",
-          "image": "./assets/images/fashion-scene-transparent-monogram.png",
+          "image": "./assets/images/fashion-scene-monogram-exact-safe.png",
           "imageWidth": 180
         }
       ]
